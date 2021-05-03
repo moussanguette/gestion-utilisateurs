@@ -1,1 +1,88 @@
-<p>admin works!</p>
+
+<style>
+    #container{
+        background-color: white;
+    }
+    #barre {
+        background-color: black;
+    height: 46px;
+    width: 100%;
+    }
+    .barre1 {
+    padding: 12px;
+    float: left;
+    min-width:125px;
+    }
+    .barre2 {
+    padding: 5px;
+    float: left;
+    padding-left: 55%;
+    min-width:100px;
+    }
+    .barre3 {
+    padding: 5px;
+    float: left;
+    padding-left: 85%;
+    min-width:100px;
+    position: fixed;
+    }
+    strong{
+        color: white;
+    }
+    .buttonDeconect{
+        color: white;
+        background-color: black;
+    }
+    #barre4{
+        background-color: gray;
+        width: 25%;
+        padding-top: 12px;
+    }
+    #barre5{
+        background-color:#E4E3E3;
+        height: 500px;
+    }
+    .barre6{
+        color: white;
+        background-color: gray;
+        width: 95%;
+    }
+    .buttonUtilisateur{
+        background-color: gray;
+        border-radius: 5%;
+        width: 95%;
+        margin-top: 2%;
+    }
+</style>
+<div id="container">
+    <div id="barre">
+        <div class="barre1"><strong>Administrateur</strong></div>
+        <div class="barre2"><strong><span class="material-icons-outlined">
+            person
+            </span> Sudo M97</strong></div>
+        <div class="barre3"><strong>
+            <button class="buttonDeconect"><span class="material-icons-outlined">
+                power_settings_new</span>Déconnexion</button> </strong></div>
+    </div>
+    <br>
+    <div>
+        <div></div>
+       <div id="barre4">
+        <div class="row form-group">
+                <input type="text" class="col-md-8 form-control" [(ngModel)]="adminFilter" >
+           <span class="material-icons-outlined">
+            search
+            </span>
+            </div>
+        <div id="barre5">
+            <br>
+            <button class="buttonUtilisateur" *ngFor="let admin of admins">  <strong> <span class="material-icons-outlined">
+                person
+                </span>
+              {{ admin.nom}} {{ admin.prenom}}  - {{ admin.rol}} </strong></button>
+ 
+        </div>
+      </div>
+    </div>
+</div>
+
