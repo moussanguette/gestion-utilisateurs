@@ -1,1 +1,54 @@
 <p>connexion works!</p>
+
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+
+            <div class="card " style="width: 18rem;">
+                <div class="card-header text-center mb-3">
+                  Connexion
+                </div>
+                <form (ngSubmit)="connecter(f)" #f="ngForm">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          <div class="row justify-content-lg-center ">
+                              <a class="btn btn-primary btn-sm mb-3 button-google" type="button"> <img class="logo-google" src="assets/images/google-logo.png" alt=""> Se Connecter avec Google</a>
+                          </div>
+                          <label for="exampleFormControlInput1" class="form-label">
+                              <span class="color-danger">*</span>
+                              Identifiant
+                          </label>
+                          <div class="input-group mb-3">
+                              <span class="input-group-text" id="basic-addon1">
+                                <i class="bi bi-person"></i>
+                              </span>
+                              <input type="text" class="form-control" name="username" ngModel placeholder="Identifiant" aria-label="Username" aria-describedby="basic-addon1">
+                          </div>
+                          <label for="exampleFormControlInput1" class="form-label">
+                              <span>*</span>
+                              Mot de passe
+                          </label>
+                          <div class="input-group mb-3">
+                              <span class="input-group-text" id="basic-addon1">
+                                <i class="bi bi-lock"></i>
+                                </span>
+                              <input type="password" class="form-control" name="password" ngModel placeholder="Mot de passe" aria-label="Username" aria-describedby="basic-addon1">
+                              
+                          </div>
+                         <div class="mb-3">
+                          <a href="">mot de passe</a>   
+                         </div>
+                          <div class="row">
+                                  <button class="btn btn-dark btn-sm" type="submit">Connexion</button>
+                          </div>
+                          
+                        </li>
+                      </ul>
+                </form>
+                
+              </div>
+
+        </div>
+    </div>
+</div>
+<!-- raspberry//169.254.14.77 -->

@@ -12,4 +12,7 @@ export class ConnexionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  connecter(f){
+    console.log(f.value);
+  }
 }
