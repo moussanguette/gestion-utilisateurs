@@ -12,4 +12,7 @@ export class MotdepasseoublierComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  connecter (form){
+    
+  }
 }
