@@ -1,0 +1,15 @@
+.container{
+    width: 55%;
+    background-color: #e4e3e3;
+}
+.card-body{
+    background: #e4e3e3;
+}
+.possition{
+    float: right;
+}
+
+.buttonEdite{
+    background: #4c60c7;
+    border-color: #4c60c7;
+}

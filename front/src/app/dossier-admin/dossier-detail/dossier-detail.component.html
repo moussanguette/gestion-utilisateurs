@@ -1,0 +1,56 @@
+<div class="container float-right mx-5">
+    <div class="card" *ngIf="utilisateur">
+  
+      <div class="card-body ">
+        
+        <div class="col-md-3  possition">
+            <img [src]="utilisateur.imageUrl" class="card-img-top my-1"/>
+        </div><br> 
+        
+        <div class="row float-left my-1 col-md-10">
+          <div class="col-md-8"><strong> {{ utilisateur.role }} </strong></div>
+          <div class="row my-2">
+
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-4">Prenom:</div>
+                <div class="col-md-0">{{ utilisateur.prenom }}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">Nom:</div>
+                <div class="col-md-0">{{ utilisateur.nom }}</div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">Pseudo:</div>
+                  <div class="col-md-0">{{ utilisateur.pseudo }}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">Téléphone:</div>
+                <div class="col-md-0">
+                  {{ utilisateur.tel }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">E-mail:</div>
+                <div class="col-md-">{{ utilisateur.email }}</div>
+              </div>
+              <br>
+              <div class="buttonSupMod">
+                <button class="btn btn-danger col-md-3.5 mx-5 buttondelete"> <i class="fas fa-trash-alt"></i> Supprimer</button>
+                <button class="btn btn-primary col-md-3.5 mx-5 buttonEdite"> <i class="fas fa-user-edit"></i> Modifier</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <button class="btn btn-outline-info d-flex" (click)="backToList()">
+          <span class="material-icons">
+            keyboard_arrow_left 
+          </span>Retour à la liste
+        </button>
+      </div>
+    </div>
+  </div>
