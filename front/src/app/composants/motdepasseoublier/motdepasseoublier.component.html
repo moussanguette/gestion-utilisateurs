@@ -1,1 +1,46 @@
-<p>motdepasseoublier works!</p>
+<div class="container mt-5">
+    <div class="row justify-content-md-center ">
+        <div class="col-md-4 ">
+
+            <div class="card " style="width: 20rem;">
+                <div class="card-header text-center mb-3">
+                  Connexion
+                </div>
+                <form (ngSubmit)="connecter(f)" #f="ngForm">
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item ">
+                          <div class="row justify-content-lg-center ">
+                            <p>Veuillez donner les informations liées à votre compte</p>
+                        </div>
+                          <label for="telephone" class="form-label">
+                              <span class="color-danger text-danger">*</span>
+                              Télephone
+                          </label>
+                          <div class="input-group mb-3">
+                              <span class="input-group-text bi bi-person" id="basic-addon1">
+                              </span>
+                              <input type="text" class="form-control" name="Télephone" ngModel placeholder="Télephone" aria-label="Télephone" aria-describedby="basic-addon1" id="telephone">
+                          </div>
+                          <label for="mail" class="form-label">
+                              <span class="text-danger">*</span>
+                              mail
+                          </label>
+                          <div class="input-group mb-3">
+                              <span class="input-group-text" id="mail">
+                                <i class="bi bi-lock"></i>
+                                </span>
+                              <input type="password" class="form-control" name="mail" ngModel placeholder="user@email.com" aria-label="mail" aria-describedby="mail" id="mail">
+                          </div>
+                          <div class="row justify-content-lg-center">
+                                  <button class="btn btn-dark btn-sm button-connexion" type="submit">Se Connecter</button>
+                          </div>
+                          
+                        </li>
+                      </ul>
+                </form>
+                
+              </div>
+
+        </div>
+    </div>
+</div>

@@ -1,9 +1,18 @@
+/* logo google */
 .logo-google{
     width: 30px;
     height: 30px;
 }
+/* bouton de connexion avec gmail et de connexion */
 .button-connexion{
 width: 250px;
 height: 40px;
 text-align:center;
+}
+.form-control{
+    width: 10px;
+}
+
+.contenu{
+    background-color: black;
 }
