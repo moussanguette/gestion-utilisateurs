@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { utilisateurListService } from "./dossier-admin.service";
-import { IUtilisateur } from "./dossier"
+import { utilisateurListService } from "../shared/services/dossier-admin.service";
+import { IUtilisateur } from "../shared/models/dossier"
 
 
 @Component({

@@ -9,23 +9,21 @@ import { RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { DossierAdminComponent } from './dossier-admin/dossier-admin.component';
+import { DossierAdminComponent } from './admin/dossier-admin/dossier-admin.component';
 /* import { from } from 'rxjs';*/
 import { ReplaceComma } from './shared/pipes/replace-comma.pipe';
 import { StarRatingComponent } from './shared/components/star-rating/star-rating.component';
 import { HomeComponent } from './home/home.component';
-import { DossierDetailComponent } from './dossier-admin/dossier-detail/dossier-detail.component';
+import { DossierDetailComponent } from './admin/dossier-detail/dossier-detail.component';
+import { AdminModule } from './admins/admin.module';
 
 registerLocaleData(localefr, 'fr');
 
 @NgModule({
   declarations: [
     AppComponent, 
-    DossierAdminComponent,
-    ReplaceComma,
-    StarRatingComponent,
-    HomeComponent,
-    DossierDetailComponent
+    HomeComponent
+    
 
   ],
 
@@ -36,10 +34,10 @@ registerLocaleData(localefr, 'fr');
     RouterModule.forRoot([
       /* { path: 'home', component :HomeComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' }, */
-      { path: 'utilisateurs/:id', component: DossierDetailComponent },
-      { path: 'utilisateurs', component: DossierAdminComponent }/* ,
+      /* ,
       { path: '**', redirectTo: 'home', pathMatch: 'full' } */
-    ])
+    ]),
+    AdminModule
   ],
 
   providers: [],

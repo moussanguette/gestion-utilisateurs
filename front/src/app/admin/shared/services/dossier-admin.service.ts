@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
-import { IUtilisateur } from "./dossier";
+import { IUtilisateur } from "../models/dossier";
 import { catchError, tap } from 'rxjs/operators'
 
 

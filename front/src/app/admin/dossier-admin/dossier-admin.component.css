@@ -6,6 +6,7 @@
 #barre4{
     background-color: #E4E3E3;
     width: 350px;
+    margin-top: -25px;
 }
 #barre5{
     background-color:#E4E3E3;
@@ -39,6 +40,13 @@
     color: white;
     font-size: 30px;
     position: absolute;
-    margin-left: -75px;
-    margin-top: 17px;
+    margin-left: -60px;
+    margin-top: 25px;
+}
+.ajouter{
+    width: 15px;
+    margin-right: 100px;
+    margin-top: 200px;
+    color: blue;
+    font-size: 75px;
 }

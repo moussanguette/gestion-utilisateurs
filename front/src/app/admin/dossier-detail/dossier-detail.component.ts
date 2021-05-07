@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IUtilisateur } from '../dossier';
-import { utilisateurListService } from '../dossier-admin.service';
+import { IUtilisateur } from '../shared/models/dossier';
+import { utilisateurListService } from '../shared/services/dossier-admin.service';
 
 @Component({
   selector: 'app-dossier-detail',
@@ -33,6 +33,9 @@ export class DossierDetailComponent implements OnInit {
 
   public backToList(): void{
     this.router.navigate(['/utilisateurs'])
+  }
+  public backToRegister(): void{
+    this.router.navigate(['/inscription'])
   }
 
 }
