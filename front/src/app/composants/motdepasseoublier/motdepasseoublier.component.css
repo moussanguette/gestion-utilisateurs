@@ -3,3 +3,17 @@
     height: 40px;
     text-align:center;
     }
+
+.info{
+    font-size: 15px;
+}
+
+.form-control{
+width: 5px;
+}
+
+/* titre de connexion */
+.card-header{
+    font-size: 35px;
+}
+

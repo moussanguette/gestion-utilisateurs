@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-motdepasseoublier',
@@ -15,4 +16,6 @@ export class MotdepasseoublierComponent implements OnInit {
   connecter (form){
     
   }
+  value = 'Clear me';
+  
 }

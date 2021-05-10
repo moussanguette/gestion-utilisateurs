@@ -14,6 +14,27 @@ module.exports = {
       prenom: {
         type: Sequelize.STRING
       },
+      age: {
+        type: Sequelize.STRING
+      },
+      adresse: {
+        type: Sequelize.STRING
+      },
+      role: {
+        type: Sequelize.STRING
+      },
+      telephone: {
+        type: Sequelize.STRING
+      },
+      email: {
+        type: Sequelize.STRING
+      },
+      password: {
+        type: Sequelize.STRING
+      },
+      isAdmin: {
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

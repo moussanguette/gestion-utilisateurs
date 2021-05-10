@@ -11,7 +11,13 @@ import { ConnexionComponent } from './composants/connexion/connexion.component';
 import { InscriptionComponent } from './composants/inscription/inscription.component';
 import { DetailComponent } from './composants/detail/detail.component';
 import { MotdepasseoublierComponent } from './composants/motdepasseoublier/motdepasseoublier.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +34,14 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
