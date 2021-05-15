@@ -185,6 +185,37 @@ router.get('/profile',(req,res)=>{
     }
 })
 
+// get user
+router.get('/getUser', (req,res)=>{
+
+   const users= models.Utilisateur.findAll().then((users)=>{
+    res.status(200).json({
+        users
+    })
+   })
+   
+   //console.log(users)
+   
+})
+//info user
+router.post('/info', (req,res)=>{
+    id =req.body.info
+    console.log('info')
+    console.log(id)
+    models.Utilisateur.findOne({
+        where: {
+            id
+        }
+    }).then((data)=>{
+        res.status(200).json({
+            data
+        })
+    })
+ })
+
+
+
+
 // detail
 router.post('/detail',(req,res)=>{
     dataId = req.body

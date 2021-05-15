@@ -1,2 +1,29 @@
 @import '~material-icons/iconfont/material-icons.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+.container{
+   
+    background-color: #E4E3E3;
+}
+.card-body{
+    background: #E4E3E3;
+}
+.possition{
+    float: right;
+    margin-right: 2px;
+}
+.buttonEdite{
+    background: #4C60C7;
+    border-color: #4C60C7;
+}
+.taille{
+    width: 100%;
+}
+.form-group{
+    margin-top: -62px;
+    margin-right: -130px;
+}
+.Identifiant{
+    float: right;
+    padding-right: 10%;
+}

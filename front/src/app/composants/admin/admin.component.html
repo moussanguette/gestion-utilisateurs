@@ -27,8 +27,75 @@
         </div>
     </div>
     <div class="col-md-9">
-      {{detailId}}
-    {{nomUser}} - {{prenomUser}}
+     <!--  <div class="container">
+        <div *ngIf="etat" class="card" style="width: 18rem;">
+          <div class="card-header">
+            <h3>Informations</h3>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <h2>Role : {{roleUser}}</h2>
+              <h3>Prenom : {{prenomUser}}</h3>
+              <h3>Nom : {{nomUser}}</h3>
+              <h3>Age : {{ageUser}}</h3>
+              <h3>Telephone : {{telUser}}</h3>
+              <h3>Identifiant : {{detailId}}</h3>
+
+          
+            </li>
+            
+          </ul>
+        </div>
+      </div> -->
+      
+        <div *ngIf="etat" class="card" >
+          <div class="card-body">
+            <div class="col-md-3  possition">
+            </div><br>
+            <div class=" float-left my-1 col-md-10">
+              <div class="Identifiant mx-5"><strong>Identifiant:</strong>  </div>
+              <div class="col-md-8"><strong>  </strong></div>
+              <div class="row my-2">
+                <div class="taille">
+                  <div class="row">
+                    <div class="col-md-2">Prenom:</div>
+                    <div class="col-md-0"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2">Nom: </div>
+                    <div class="col-md-0">{{nomUser}}</div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-2">Pseudo:</div>
+                      <div class="col-md-0"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2">Téléphone:</div>
+                    <div class="col-md-0"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-2">E-mail:</div>
+                    <div class="col-md-0"></div>
+                  </div>
+                  <br>
+                  <div class="form-group mb-2">
+                    <div class="offset-md-8 col-md-0" routerLinkActive="active">
+                      <button class="btn btn-primary mr-4"
+                      [routerLink]="['/utilisateurs', utilisateur.Id , 'edit']"
+                      type="submit">Modifier
+                      </button>
+                      <button class="btn btn-outline-danger" type="button">
+                        Supprimer
+                    </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    
     </div>
     
 <!-- {{detailUser.id}}

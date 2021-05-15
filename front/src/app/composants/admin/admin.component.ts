@@ -55,7 +55,13 @@ infoUser:any
 detailId:any
 nomUser:any
 prenomUser:any
+roleUser:any
+mailUser:any
+telUser:any
+ageUser:any
+etat = false
 detail(detailId){
+  this.etat = true
   this.infoUser={info:detailId}
   this.detailId=detailId
   console.log(detailId)
@@ -65,7 +71,11 @@ detail(detailId){
     this.detailUser=resultat.data
     this.nomUser = resultat.data.nom
     this.prenomUser=resultat.data.prenom
-    console.log(this.nomUser)
+    this.roleUser = resultat.data.role
+    this.telUser = resultat.data.telephone
+    this.ageUser = resultat.data.age
+    
+    console.log(this.detailUser)
        
   }) 
 }
