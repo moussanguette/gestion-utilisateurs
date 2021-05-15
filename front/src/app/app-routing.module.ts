@@ -12,6 +12,7 @@ const routes: Routes = [
   {path:'administrateur/:id',component:AdminComponent},
   {path:'inscription',component:InscriptionComponent},
   {path:'administrateur/utilisateur/:id',component:UtilisateursComponent},
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

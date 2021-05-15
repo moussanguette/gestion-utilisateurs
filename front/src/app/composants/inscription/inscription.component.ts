@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ConnexionService } from 'src/app/services/connexion.service';
 
 @Component({
   selector: 'app-inscription',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private connexionService:ConnexionService, private route:Router) { }
+data: any
+form : any
+status : any
 
   ngOnInit(): void {
+  }
+  inscrire(f){
+    console.log(f.value)
+    this.form = f.value
+    return this.connexionService.inscrire(this.form).subscribe((resultat:any)=>{
+    console.log(resultat)      
+    // this.route.navigate(['administrateur/'+this.id]);
+     
+    })
   }
 
 }

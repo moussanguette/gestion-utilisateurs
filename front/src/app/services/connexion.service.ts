@@ -21,4 +21,7 @@ export class ConnexionService {
   recevoirDetail(donne:object){
     return this.webRequestService.post('info', donne)
   }
+  inscrire(donne: object){
+    return this.webRequestService.post('register', donne)
+  }
 }

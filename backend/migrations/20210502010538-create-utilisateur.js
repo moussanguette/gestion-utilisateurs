@@ -14,7 +14,7 @@ module.exports = {
       prenom: {
         type: Sequelize.STRING
       },
-      age: {
+      pseudo: {
         type: Sequelize.STRING
       },
       adresse: {
@@ -32,9 +32,7 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      isAdmin: {
-        type: Sequelize.BOOLEAN
-      },
+      
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
