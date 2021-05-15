@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ConnexionService } from '../../services/connexion.service';
 import { IAdmin }  from './admin';
 
@@ -10,29 +10,9 @@ import { IAdmin }  from './admin';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private connexionService:ConnexionService, private route: ActivatedRoute) { }
+  constructor(private connexionService:ConnexionService, private aRoute: ActivatedRoute,private route: Router) { }
   public admins: any[] = [
-    {
-      nom: "ASSANE",
-      prenom: "THIAW",
-      rol: "admin"
-   },
-   {
-       nom: "MOUSSA",
-       prenom: "NGETT",
-       rol: "ETUDIANT"
-    },
-    {
-       nom: "MOUHAMED",
-       prenom: "NIANG",
-       rol: "FINANCE"
-    },
-    {
-       nom: "DIEGUI",
-       prenom: "KA",
-       rol: "ETUDIANTE"
-    }
-  
+    
   ];
   private _adminFilter = 'Utilisateurs';
   public filteredadmins: IAdmin[] = [];
@@ -46,22 +26,50 @@ export class AdminComponent implements OnInit {
   username :any
   role :any
   isAdmin :any
+  dataUser: any
   ngOnInit(): void {
     this.filteredadmins = this.admins;
 
-   const id = this.route.snapshot.params['id'];
+   const id = this.aRoute.snapshot.params['id'];
    this.dataId={value:id}
     console.log(this.dataId)
     this.connexionService.recevoir(this.dataId).subscribe((resultat:any)=>{
-      console.log(resultat.data)
+      
       this.user=resultat.data
+      console.log(this.user)
       this.nom=this.user.nom
       this.prenom=this.user.prenom
       this.adresse=this.user.adresse
       this.username=this.user.username
       this.role=this.user.role
     })
+
+    this.connexionService.user().subscribe((resultat:any)=>{
+      this.dataUser= resultat.users;
+      
+    })
+
 }
+detailUser:any
+infoUser:any
+detailId:any
+nomUser:any
+prenomUser:any
+detail(detailId){
+  this.infoUser={info:detailId}
+  this.detailId=detailId
+  console.log(detailId)
+  //this.route.navigate(['administrateur/utilisateur/'+detailId])
+  this.connexionService.recevoirDetail(this.infoUser).subscribe((resultat:any)=>{
+    
+    this.detailUser=resultat.data
+    this.nomUser = resultat.data.nom
+    this.prenomUser=resultat.data.prenom
+    console.log(this.nomUser)
+       
+  }) 
+}
+
 
 public get adminFilter(): string {
   return this._adminFilter;

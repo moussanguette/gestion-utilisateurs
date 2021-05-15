@@ -17,6 +17,7 @@ import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { UtilisateursComponent } from './composants/utilisateurs/utilisateurs.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     ConnexionComponent,
     InscriptionComponent,
     DetailComponent,
-    MotdepasseoublierComponent
+    MotdepasseoublierComponent,
+    UtilisateursComponent
   ],
   imports: [
     BrowserModule,

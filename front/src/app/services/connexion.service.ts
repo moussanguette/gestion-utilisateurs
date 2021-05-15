@@ -14,4 +14,11 @@ export class ConnexionService {
   recevoir(donne:object){
     return this.webRequestService.get('detail',donne)
   }
+  user(){
+    return this.webRequestService.getUser('getUser');
+  }
+  //information personnel de l'utilisateur
+  recevoirDetail(donne:object){
+    return this.webRequestService.post('info', donne)
+  }
 }

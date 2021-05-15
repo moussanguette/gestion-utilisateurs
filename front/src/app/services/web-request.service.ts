@@ -16,4 +16,10 @@ export class WebRequestService {
    get(url:string, valeur:object){
      return this.http.post(this.ROOT_URL+'/'+url,valeur)
    }
+   getUser(url:string){
+     return this.http.get(this.ROOT_URL+'/'+url);
+   }
+   getDetailUser(url:string, detail:object){
+    return this.http.get(this.ROOT_URL+'/'+url,detail);
+  }
 }
