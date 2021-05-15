@@ -16,10 +16,10 @@ require('dotenv').config();
 
 router.post('/register', (req, res) => {
     
-    const { prenom, nom, age, adresse, email, role, telephone } = req.body;
+    const { prenom, nom, pseudo, adresse, email, role, telephone } = req.body;
    const password= "mame"
 console.log(req.body)
-    if (prenom == undefined || prenom == '' ||nom == undefined || nom == '' || password == undefined || password == '' || email == undefined || email == ''|| adresse == undefined || adresse == ''|| telephone == undefined || telephone == '') {
+    if (prenom == undefined || prenom == '' ||nom == undefined || nom == ''||pseudo == undefined || pseudo == '' || password == undefined || password == '' || email == undefined || email == ''|| adresse == undefined || adresse == ''|| telephone == undefined || telephone == '') {
         res.status(401).json({
             message: "fill all field",
             status: res.statusCode
@@ -40,7 +40,7 @@ console.log(req.body)
                         models.Utilisateur.create({
                             prenom: prenom,
                             nom: nom,
-                            age: age,
+                            pseudo: pseudo,
                             adresse: adresse,
                             email: email,
                             telephone: telephone,
@@ -131,7 +131,7 @@ router.post('/login',(req,res)=>{
                             nom: value.getDataValue('nom'),
                             prenom: value.getDataValue('prenom'),
                             email: value.getDataValue('email'),
-                            age: value.getDataValue('age'),
+                            pseudo: value.getDataValue('pseudo'),
                             adresse: value.getDataValue('adresse'),
                             telephone: value.getDataValue('telephone')
                         }
