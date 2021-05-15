@@ -19,7 +19,7 @@ router.post('/register', (req, res) => {
     const { prenom, nom, age, adresse, email, role, telephone } = req.body;
    const password= "mame"
 console.log(req.body)
-    if (prenom == undefined || prenom == '' ||nom == undefined || nom == '' || password == undefined || password == '' || email == undefined || email == ''|| age == undefined || age == '' || adresse == undefined || adresse == ''|| telephone == undefined || telephone == '') {
+    if (prenom == undefined || prenom == '' ||nom == undefined || nom == '' || password == undefined || password == '' || email == undefined || email == ''|| adresse == undefined || adresse == ''|| telephone == undefined || telephone == '') {
         res.status(401).json({
             message: "fill all field",
             status: res.statusCode
