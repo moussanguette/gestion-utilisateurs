@@ -55,12 +55,11 @@
                   <span class="material-icons-outlined" id="search">search</span>            
               </h1> 
               <div id="barre5">
-                  <div *ngFor= "let user of dataUser">
-                    <button (click)="detail(user.id)" class="buttonUtilisateur">
-                    <i class="bi bi-person-fill"></i>
-                    {{user.prenom}} {{user.nom}} - {{user.role}}
-                    </button>
-                  </div>  
+        
+                    <div *ngFor="let user of dataUser" class="user border border-2 rounded  buttonUtilisateur">
+                      <a (click)="detail(user.id)" class="btn " ><p><i class="bi bi-person-fill"></i> {{user.prenom}} {{user.nom}} - {{user.role}}</p></a>
+                    </div>
+                    
               </div>    
           </div>
           
@@ -118,8 +117,8 @@
                       <button class="btn btn-primary mr-4"
                       type="submit">Modifier
                       </button>
-                      <button class="btn btn-outline-danger" type="button">
-                      Supprimer
+                      <button class="btn btn-outline-danger" 
+                      type="button">Supprimer
                       </button>
                     </div>
               </div>
@@ -131,7 +130,7 @@
 
     
     <div>
-      <a [routerLink]="['/utilisateur']">
+      <a>
         <span class="material-icons-outlined ajouter" 
         type="button">add_circle
         </span>

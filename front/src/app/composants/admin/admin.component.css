@@ -53,6 +53,8 @@
     border-style:none;
     width: 95%;
     margin-top: 2%;
+    height: 32px;
+
 }
 .from-control{
     background-color: gray;
