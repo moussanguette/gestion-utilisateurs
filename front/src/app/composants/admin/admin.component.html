@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Administrateur</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,6 @@
       </div>
     </div>
   </nav>
-  <div class="container-fluid mt-5">
     <div class="row">
       <div class="col-md-3 text-white">
         <div class="titre bg-dark">
@@ -25,58 +24,121 @@
         <div *ngFor="let user of dataUser" class="user border border-2 rounded bg-dark">
           <a (click)="detail(user.id)" class="btn text-white" ><p><i class="bi bi-person-fill"></i> {{user.prenom}} {{user.nom}} - {{user.role}}</p></a>
         </div>
-    </div>
-    <div class="col-md-9">
-        <div *ngIf="etat" class="card" >
-          <div class="card-body">
-            <div class="col-md-3  possition">
-            </div><br>
-            <div class=" float-left my-1 col-md-10">
-              <div class="Identifiant mx-5"><strong>Identifiant:</strong>  </div>
-              <div class="col-md-8"><strong>  </strong></div>
-              <div class="row my-2">
-                <div class="taille">
-                  <div class="row">
-                    <div class="col-md-2">Prenom:</div>
-                    <div class="col-md-0"></div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-2">Nom: </div>
-                    <div class="col-md-0">{{nomUser}}</div>
-                  </div>
-                  <div class="row">
-                      <div class="col-md-2">Pseudo:</div>
-                      <div class="col-md-0"></div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-2">Téléphone:</div>
-                    <div class="col-md-0"></div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-2">E-mail:</div>
-                    <div class="col-md-0"></div>
-                  </div>
-                  <br>
-                  <div class="form-group mb-2">
-                    <div class="offset-md-8 col-md-0" routerLinkActive="active">
+    </div> -->
+
+    <nav class="navbar navbar-expand-lg navbar-black bg-black " style="background-color: #000;">
+      <div class="container-fluid">
+        <a class=" text-white" href="#"><h5><strong>Administrateur</strong></h5></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end " id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item float-end">
+              <a class="btn nav-link text-white" aria-current="page" href="#"><i class="bi bi-person-fill"></i> {{prenom}} {{nom}}</a>
+            </li>
+            <li class="nav-item ">
+              <a class="btn nav-link text-white" href="#"><i class="bi bi-box-arrow-left"></i> Deconnexion</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row align-items-start custom-line">
+
+      <div class="col-md-3">
+        <div id="list">
+          <div id="barre4">
+              <h1 class="from-control">
+                  Utilisateurs
+                  <span class="material-icons-outlined" id="search">search</span>            
+              </h1> 
+              <div id="barre5">
+                  <div *ngFor= "let user of dataUser">
+                    <button (click)="detail(user.id)" class="buttonUtilisateur">
+                    <i class="bi bi-person-fill"></i>
+                    {{user.prenom}} {{user.nom}} - {{user.role}}
+                    </button>
+                  </div>  
+              </div>    
+          </div>
+          
+        </div>
+      </div>
+
+      
+          
+      <div class="col-md-8 detail">
+          <div *ngIf="etat" class="card" >
+            <div class="information text-center">
+              <h2>Informations</h2>
+            </div>
+
+            <div class="">
+              <img class="avatar float-right" src="assets/images/logo.png" alt="">
+            </div>
+
+            <div class="card-body">
+              <div class="">
+                <div class="mx-5"><strong> {{roleUser}} </strong>
+                  <div  class="d-flex justify-content-between float-right"><strong>Identifiant:</strong> 000{{detailId}} </div>
+                </div>
+              </div>
+              
+
+              <div class="  my-4 col-md-12">
+               
+                    <div class="row my-2">
+                      <div class="col-md-2 indiqueInfo"><strong>Prenom:</strong>  </div>
+                      <div class="col-md-10">{{prenomUser}}</div>
+                    </div>
+                    <div class="row my-2">
+                      <div class="col-md-2 indiqueInfo"><strong>Nom:</strong>  </div>
+                      <div class="col-md-10">{{nomUser}}</div>
+                    </div>
+                    <div class="row my-2">
+                      <div class="col-md-2 indiqueInfo"><strong>Age:</strong>  </div>
+                      <div class="col-md-10">{{ageUser}}</div>
+                    </div>
+                    <div class="row my-2">
+                      <div class="col-md-2 indiqueInfo"><strong>Pseudo:</strong>  </div>
+                      <div class="col-md-10">{{username}}</div>
+                    </div>
+                    <div class="row my-2">
+                      <div class="col-md-2 indiqueInfo"><strong>Téléphone:</strong>  </div>
+                      <div class="col-md-10">{{telUser}}</div>
+                    </div>
+                    <div class="row my-2">
+                      <div class="col-md-2 indiqueInfo"><strong>E-mail:</strong>  </div>
+                      <div class="col-md-10">{{mailUser}}</div>
+                    </div>
+                    <br>
+                    <div class="row float-right">
                       <button class="btn btn-primary mr-4"
-                      [routerLink]="['/utilisateurs', utilisateur.Id , 'edit']"
                       type="submit">Modifier
                       </button>
                       <button class="btn btn-outline-danger" type="button">
-                        Supprimer
-                    </button>
+                      Supprimer
+                      </button>
                     </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-        </div>
-    </div>
-    </div>
-  </div>
-  <app-inscription></app-inscription>
+      </div>
   
+    </div>
+
+    
+    <div>
+      <a [routerLink]="['/utilisateur']">
+        <span class="material-icons-outlined ajouter" 
+        type="button">add_circle
+        </span>
+      </a>
+  </div>
+  
+<!--   <app-inscription></app-inscription>
+ -->  
 
   

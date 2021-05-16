@@ -1,9 +1,14 @@
 @import '~material-icons/iconfont/material-icons.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-.container{
+.list{
    
     background-color: #E4E3E3;
+}
+#barre4{
+    background-color: #E4E3E3;
+    width: 350px;
+    margin-top: -25px;
 }
 .card-body{
     background: #E4E3E3;
@@ -16,14 +21,84 @@
     background: #4C60C7;
     border-color: #4C60C7;
 }
-.taille{
-    width: 100%;
-}
+
+
 .form-group{
     margin-top: -62px;
     margin-right: -130px;
 }
-.Identifiant{
+.role{
     float: right;
-    padding-right: 10%;
+    padding-right: 90%;
+}
+
+#barre4{
+    background-color: #E4E3E3;
+    width: 350px;
+    margin-top: 30px;
+}
+#barre5{
+    background-color:#E4E3E3;
+    height: auto;
+    
+}
+.barre6{
+    color: white;
+    background-color: #c4c4c4;
+    width: 95%;
+}
+.buttonUtilisateur{
+    background-color: #c4c4c4;
+    border-radius: 5%;
+    border-style:none;
+    width: 95%;
+    margin-top: 2%;
+}
+.from-control{
+    background-color: gray;
+    width: 350px;
+    color: white;
+    border-style: none;
+    height: 55px;
+}
+.img{
+    width:10px;
+    height:10px;
+}
+
+#search{
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    margin-left: 100px;
+    margin-top: 25px;
+}
+.ajouter{
+    width: 10px;
+    margin-right: 100px;
+    margin-top: 325px;
+    color: blue;
+    font-size: 65px;
+    float: right;
+}
+.detail{
+    margin-top: 30px;
+    margin-left: 85px;
+}
+.card-body{
+    background-color: white;
+    border: none;
+}
+.information{
+    background-color: #BDBDBD;
+    color: black;
+}
+.indiqueInfo{
+    color: black;
+}
+img{
+    width: 90px;
+}
+.avatar{
+    margin-right: 75px;
 }

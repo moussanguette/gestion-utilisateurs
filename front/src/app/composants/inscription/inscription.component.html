@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
     #form {
         background-color: #E4E3E3;
         height: 700px;
@@ -16,7 +16,7 @@
 
 <div id="form">
     <div id="barre4">
-        <p><strong>Inscription</strong> </p>
+        <p><strong>Inscription</strong></p>
     </div>
     <form (ngSubmit)="inscrire(f)" #f="ngForm">
         <div class="row" style="padding: 25px;">
@@ -70,12 +70,9 @@
                     <option value="etudiant" style="background-color: gray;">Etudiant</option>
                     <option value="finance" style="background-color: gray;">Finance</option>
                 </select>
-
             </div>
-
-
-
         </div>
+
         <div class="row" style="padding: 70px; align-content: center;   ">
             <div class="col-md-3" style="padding: 50px;">
                 <button type="submit" style="background-color: red;" class="btn btn-primary">Annuler</button>
@@ -88,4 +85,113 @@
 
 
     </form>
+</div> -->
+
+<div class="card container my-5">
+    <div class="inscription text-center">
+        <h4>Inscription</h4>
+    </div>    
+      <div class="card-body ">
+        <form (ngSubmit)="inscrire(f)" #f="ngForm"> 
+            <div class=" row mb-5">
+                <label for="exampleInputPrenom" 
+                class="col-md-2.5 col-form-label">
+                Prenom</label>
+                <div class="col-md-4">
+                    <input name="prenom" 
+                    ngModel type="text" 
+                    class="form-control" 
+                    placeholder="Prenom" 
+                    id="exampleInputNom"
+                    />
+                </div>
+                <label for="exampleInputNom"  
+                class="col-md-1.5 col-form-label">
+                Nom</label>
+                <div class="col-md-4">
+                    <input name="nom" 
+                    ngModel type="text" 
+                    class="form-control" 
+                    placeholder="Nom" 
+                    id="exampleInputEmail1"
+                    />
+                </div>
+            </div>
+            
+            <div class="form-group row mb-6">
+                <label for="exampleInputTelephone" 
+                class="col-md-1.5 col-form-label">
+                Téléfon</label>
+                <div class="col-md-4">
+                    <input name="telephone" 
+                    ngModel type="text" 
+                    class="form-control" 
+                    placeholder="Téléphone"
+                    id="exampleInputTelephone"
+                    />
+                </div>
+                <label for="exampleInputEmail" 
+                class="col-md-1.5 col-form-label">
+                E-mail</label>
+                <div class="col-md-4">
+                    <input name="email" 
+                    ngModel type="text" 
+                    class="form-control" 
+                    placeholder="E-mail" 
+                    id="exampleInputEmail"
+                    />
+                </div>
+            </div>
+           
+            <div class="form-group row mb-5">
+                <label for="exampleInputAdress" 
+                class="col-md-1.5 col-form-label">
+                Adress</label>
+                <div class="col-md-4">
+                    <input name="adresse" 
+                    ngModel type="text" 
+                    class="form-control" 
+                    placeholder="Adress"
+                    id="exampleInputAdress"
+                    />
+                </div>
+                <label for="exampleInputPseudo" 
+                class="col-md-1.5 col-form-label">
+                Pseudo</label>
+                <div class="col-md-4">
+                    <input name="pseudo" 
+                    ngModel type="text" 
+                    class="form-control" 
+                    placeholder="Pseudo"
+                    id="exampleInputPseudo"
+                    />
+                </div>
+            </div>
+
+            <div class="row my-5 mx-5">
+                <div class="col-md-1">
+                    <label for="cars">Role</label>
+                </div>
+                <div class="col-md-6 ">
+                    <select ngModel name="role" id="cars">
+                        <option value="admin" style="background-color: gray;">Administrateur</option>
+                        <option value="formateur" style="background-color: gray;">Formateur</option>
+                        <option value="etudiant" style="background-color: gray;">Etudiant</option>
+                        <option value="finance" style="background-color: gray;">Finance</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="">
+                <div class="offset-md-2 col-md-8">
+                    <button class="btn btn-outline-secondary mr-5" type="button">
+                        Annuler
+                    </button>
+                    <button class="btn btn-info mr-4" type="submit">
+                        Enregistrer
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
