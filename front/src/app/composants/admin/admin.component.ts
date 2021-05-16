@@ -27,14 +27,13 @@ export class AdminComponent implements OnInit {
   role :any
   isAdmin :any
   dataUser: any
+  id:any
   ngOnInit(): void {
     this.filteredadmins = this.admins;
-
-   const id = this.aRoute.snapshot.params['id'];
-   this.dataId={value:id}
-    console.log(this.dataId)
+   this.id = this.aRoute.snapshot.params['id'];
+   this.dataId={value:this.id}
+    //console.log(this.dataId)
     this.connexionService.recevoir(this.dataId).subscribe((resultat:any)=>{
-      
       this.user=resultat.data
       console.log(this.user)
       this.nom=this.user.nom
@@ -76,10 +75,21 @@ detail(detailId){
     this.ageUser = resultat.data.age
     
     console.log(this.detailUser)
-       
+    
   }) 
 }
 
+ajouter(){
+  this.route.navigate(['administrateur/inscription/'+this.id])
+}
+delId:any
+Supprimer(detailId){
+  this.delId={delId:detailId}
+  this.connexionService.supp(this.delId).subscribe((resultat:any)=>{
+    console.log(resultat)
+    location.reload();
+  })
+}
 
 public get adminFilter(): string {
   return this._adminFilter;

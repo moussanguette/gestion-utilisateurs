@@ -118,7 +118,7 @@
                       <button class="btn btn-primary mr-4"
                       type="submit">Modifier
                       </button>
-                      <button class="btn btn-outline-danger" type="button">
+                      <button (click)="Supprimer(detailId)" class="btn btn-outline-danger" type="button">
                       Supprimer
                       </button>
                     </div>
@@ -131,7 +131,7 @@
 
     
     <div>
-      <a [routerLink]="['/utilisateur']">
+      <a (click)="ajouter()" >
         <span class="material-icons-outlined ajouter" 
         type="button">add_circle
         </span>
