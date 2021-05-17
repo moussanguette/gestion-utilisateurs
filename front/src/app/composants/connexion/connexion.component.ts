@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConnexionService } from '../../services/connexion.service';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-connexion',
@@ -12,21 +13,23 @@ form: object
 status:any
 data:any
 id :any
+validation : any
   constructor(private connexionService:ConnexionService, private route:Router) { }
 
   ngOnInit(): void {
   }
   hide = true;
   roleUser : any
-  connecter(f){
+  connecter(f:NgForm){
     this.form = f.value
+    this.validation=f.status
     return this.connexionService.donne(this.form).subscribe((resultat:any)=>{
-      this.status=resultat;
+      this.status=resultat.status;
       //this.data=resultat.userDetail;
       //this.id=this.data.id;
       //this.roleUser=this.data.role
      //console.log(resultat);
-     console.log('resultat');
+     console.log(this.status);
      //console.log(this.data);
      //console.log(this.roleUser);
      if(this.roleUser=="admin"){

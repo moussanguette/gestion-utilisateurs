@@ -29,9 +29,13 @@
                           <div class="input-group mb-3">
                               <input type="password" class="form-control border-dark rounded-pill" name="password" ngModel placeholder="Mot de passe" required>
                           </div>
+                          <div *ngIf="validation=='INVALID'">
+                            <p>veuillez remplir tous les champs !</p>
+                        </div>
                          <div class="mb-3">
-                          <a [routerLink]="['/oublier']" >mot de passe</a>   
+                          <a [routerLink]="['/oublier']" >mot de passe oublié</a>   
                          </div>
+                         
                          
                           <div class="row justify-content-lg-center">
                                   <button class="btn btn-dark btn-sm button-connexion rounded-pill" type="submit">Se Connecter</button>
