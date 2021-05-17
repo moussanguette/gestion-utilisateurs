@@ -34,6 +34,7 @@ export class AdminComponent implements OnInit {
    this.dataId={value:this.id}
     //console.log(this.dataId)
     this.connexionService.recevoir(this.dataId).subscribe((resultat:any)=>{
+      //console.log(resultat)
       this.user=resultat.data
       console.log(this.user)
       this.nom=this.user.nom
@@ -58,6 +59,7 @@ roleUser:any
 mailUser:any
 telUser:any
 ageUser:any
+pseudoUser:any
 etat = false
 detail(detailId){
   this.etat = true
@@ -72,7 +74,8 @@ detail(detailId){
     this.prenomUser=resultat.data.prenom
     this.roleUser = resultat.data.role
     this.telUser = resultat.data.telephone
-    this.ageUser = resultat.data.age
+    this.pseudoUser = resultat.data.pseudo
+    this.mailUser = resultat.data.email
     
     console.log(this.detailUser)
     
