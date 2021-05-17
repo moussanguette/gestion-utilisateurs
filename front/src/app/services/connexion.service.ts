@@ -24,4 +24,7 @@ export class ConnexionService {
   inscrire(donne: object){
     return this.webRequestService.post('register', donne)
   }
+  supp(donne: object){
+    return this.webRequestService.post('supprimer', donne)
+  }
 }
