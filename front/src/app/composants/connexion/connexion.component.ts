@@ -17,21 +17,32 @@ id :any
   ngOnInit(): void {
   }
   hide = true;
-  
+  roleUser : any
   connecter(f){
     this.form = f.value
-    //console.log(this.form);
     return this.connexionService.donne(this.form).subscribe((resultat:any)=>{
-      this.status=resultat.status;
-      this.data=resultat.userDetail;
-      this.id=this.data.id;
+      this.status=resultat;
+      //this.data=resultat.userDetail;
+      //this.id=this.data.id;
+      //this.roleUser=this.data.role
      //console.log(resultat);
-     console.log(this.status);
-     console.log(this.data);
-     console.log(this.id);
-     this.route.navigate(['administrateur/'+this.id]);
-     //token check
-     
+     console.log('resultat');
+     //console.log(this.data);
+     //console.log(this.roleUser);
+     if(this.roleUser=="admin"){
+      this.route.navigate(['administrateur/'+this.id]);
+     }
+     else if(this.roleUser=="formateur"){
+      this.route.navigate(['formateur/'+this.id]);
+     }
+     else if(this.roleUser=="etudiant"){
+      this.route.navigate(['etudiant/'+this.id]);
+     }
+     else if(this.roleUser=="finance"){
+      this.route.navigate(['finance/'+this.id]);
+     }else{
+      this.route.navigate(['connexion/']);
+     }
     })
     
   }
