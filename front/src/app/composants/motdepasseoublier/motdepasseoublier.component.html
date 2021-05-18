@@ -3,10 +3,13 @@
   <div class="row justify-content-md-center ">
       <div class="col-md-4 ">
 
-          <div class="card " style="width: 20rem;">
-              <div class="card-header text-center mb-3 ">
-                Connexion
-              </div>
+          <div class="card " style="width: 20rem; height: 380px;">
+            <div class="card-header text-center mb-3" style="background-color: #bdbdbd; height: 40px;">
+              <h4 style="margin-left: 80px; color: black; margin-top: -7px;" >Connexion</h4>
+            </div>
+            <div style="margin-left: 17px; margin-top: 15px">
+              <h6 style="font-size: 12px;">Veuillez donner les informations liées à votre compte</h6>
+            </div>
               <form (ngSubmit)="connecter(f)" #f="ngForm" class="needs-validation" novalidate>
                   <ul class="list-group list-group-flush ">
                       <li class="list-group-item ">
@@ -28,9 +31,9 @@
                             <input type="text" class="form-control border-dark rounded-pill" required="required" name="telephone" ngModel placeholder="télephone" aria-label="télephone" aria-describedby="basic-addon1">
                         </div>
 
-                            <div class="row justify-content-lg-center">
+                            <div class="row justify-content-lg-center" style="margin-top: 50px;">
                                 <button class="btn btn-dark btn-sm button-connexion rounded-pill" type="submit">Envoyer</button>
-                        </div>
+                            </div>
                       </li>
                     </ul>
               </form>
