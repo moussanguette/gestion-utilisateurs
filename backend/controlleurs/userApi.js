@@ -15,11 +15,15 @@ require('dotenv').config();
 //register API
 
 router.post('/register', (req, res) => {
+    function entierAleatoire(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
     
     const { prenom, nom, pseudo, adresse, email, role, telephone } = req.body;
-   const password= "mame"
-console.log(req.body)
-    if (prenom == undefined || prenom == '' ||nom == undefined || nom == ''||pseudo == undefined || pseudo == '' || password == undefined || password == '' || email == undefined || email == ''|| adresse == undefined || adresse == ''|| telephone == undefined || telephone == '') {
+    //La variable contient un nombre aléatoire compris entre 1 et 1000
+    const password = nom + entierAleatoire(1, 1000);
+    console.log(req.body)
+    if (prenom == undefined || prenom == '' || nom == undefined || nom == '' || pseudo == undefined || pseudo == '' || password == undefined || password == '' || email == undefined || email == '' || adresse == undefined || adresse == '' || telephone == undefined || telephone == '') {
         res.status(401).json({
             message: "fill all field",
             status: res.statusCode
@@ -50,7 +54,31 @@ console.log(req.body)
                             res.status(201).json({
                                 message: "Account has created succefully",
                                 status: res.statusCode
-                            })
+                            }),
+                                    // send mail 
+        // create reusable transporter object using the default SMTP transport
+         transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.ACCOUNT, // generated ethereal user
+                pass: process.env.PASS, // generated ethereal password
+            },
+        });
+        // send mail with defined transport object
+        let mailOption = {
+            from: 'mossanguette@gmail.com', // sender address
+            to: email, // list of receivers
+            subject: "Gestion d'utilisateur ✔", // Subject line
+            text: "Bonjour votre mot de passe est " + password // plain text body
+        };
+
+        transporter.sendMail(mailOption, (err, data) => {
+            if (err) {
+                console.log('error', err)
+            } else {
+                console.log("mail sent !!!",email)
+            }
+        })
                         }).catch(err => res.status(404).json({
                             message: "something went wront"
                         }))
@@ -64,40 +92,17 @@ console.log(req.body)
             }
         })
 
-         // send mail 
-              // create reusable transporter object using the default SMTP transport
-              let transporter = nodemailer.createTransport({
-                service : 'gmail',
-                auth: {
-                user: process.env.ACCOUNT, // generated ethereal user
-                pass: process.env.PASS, // generated ethereal password
-                },
-            });
-          // send mail with defined transport object
-            let mailOption = {
-                from: 'mossanguette@gmail.com', // sender address
-                to: "assane.thiaw9@gmail.com", // list of receivers
-                subject: "Gestion d'utilisateur ✔", // Subject line
-                text: "Bonjour votre mot de passe est "+password // plain text body
-            };
 
-            transporter.sendMail(mailOption, (err, data)=>{
-                if(err){
-                    console.log('error', err)
-                }else{
-                    console.log("mail sent !!!")
-                }
-            })
     }
 })
 
 // router login
-router.post('/login',(req,res)=>{
+router.post('/login', (req, res) => {
     data = req.body
     console.log(data)
 
     const { email, password } = data;
-    
+
     if (password == undefined || password == '' || email == undefined || email == '') {
         res.status(401).json({
             message: "fill all field",
@@ -113,30 +118,31 @@ router.post('/login',(req,res)=>{
             //if mail not found ask user to register
             if (value === null) {
                 res.status(401).json({
-                    message:"Email is not register please please singUp",
+                    message: "Email is not register please please singUp",
                     status: res.statusCode,
-                    token:''
+                    token: ''
                 })
             } else {
 
                 //if mail is there, check the password is correct or not
                 const dbPassword = value.getDataValue('password');
-                bcrypt.compare(password,dbPassword,(err, resultat)=>{
-                    if(resultat){
+                bcrypt.compare(password, dbPassword, (err, resultat) => {
+                    if (resultat) {
                         //if password is correct sent json webtoken
 
-                        const userDetail={
+                        const userDetail = {
                             id: value.getDataValue('id'),
                             username: value.getDataValue('username'),
                             nom: value.getDataValue('nom'),
                             prenom: value.getDataValue('prenom'),
                             email: value.getDataValue('email'),
                             pseudo: value.getDataValue('pseudo'),
+                            role: value.getDataValue('role'),
                             adresse: value.getDataValue('adresse'),
                             telephone: value.getDataValue('telephone')
                         }
-                        const token=webToken.sign(userDetail, process.env.secret_key,{
-                            expiresIn:"60s"
+                        const token = webToken.sign(userDetail, process.env.secret_key, {
+                            expiresIn: "60s"
                         })
 
                         res.status(200).json({
@@ -146,12 +152,12 @@ router.post('/login',(req,res)=>{
                             token
 
                         })
-                    }else{
+                    } else {
                         //if password not match sent error message
                         res.status(203).json({
                             message: "Invalid crendential given",
                             status: res.statusCode,
-                            token:''
+                            token: ''
                         })
 
                     }
@@ -161,67 +167,82 @@ router.post('/login',(req,res)=>{
     }
 })
 
+// supprimer utilisateur
+router.post('/supprimer', (req, res) => {
+    id = req.body.delId
+    models.Utilisateur.destroy({
+        where: {
+            id
+        }
+    }).then(()=>{
+        res.status(200).json({
+            message : "suppression effectuée "
+        })
+    })
+})
+
+
 //get user profile
-router.get('/profile',(req,res)=>{
+router.get('/profile', (req, res) => {
     const authHeader = req.headers['authorization'];
-    if(authHeader){
+    if (authHeader) {
         //web token
-        const token =authHeader.substr('bearer'.length,+1);
-        webToken.verify(token, process.env.secret_key,(err, user)=>{
-            if(user){
+        const token = authHeader.substr('bearer'.length, +1);
+        webToken.verify(token, process.env.secret_key, (err, user) => {
+            if (user) {
                 res.status(200).json({
                     message: "success",
                     status: res.statusCode,
-                    data:user
+                    data: user
                 })
             }
-            else{
+            else {
                 res.status(401).json({
                     message: "please login",
                     status: res.statusCode,
-                    token:''
+                    token: ''
                 })
             }
         })
-        
+
     }
 })
 
 // get user
-router.get('/getUser', (req,res)=>{
+router.get('/getUser', (req, res) => {
 
-   const users= models.Utilisateur.findAll().then((users)=>{
-    res.status(200).json({
-        users
+    const users = models.Utilisateur.findAll().then((users) => {
+        res.status(200).json({
+            users
+        })
     })
-   })
-   
-   //console.log(users)
-   
+
+    //console.log(users)
+
 })
 //info user
-router.post('/info', (req,res)=>{
-    id =req.body.info
+router.post('/info', (req, res) => {
+    id = req.body.info
     console.log('info')
     console.log(id)
     models.Utilisateur.findOne({
         where: {
             id
         }
-    }).then((data)=>{
+    }).then((data) => {
         res.status(200).json({
             data
         })
     })
- })
+})
 
 
 
 
 // detail
-router.post('/detail',(req,res)=>{
+router.post('/detail', (req, res) => {
     dataId = req.body
-    id= dataId.value
+    id = dataId.value
     console.log(req.body)
     models.Utilisateur.findOne({
         where: {
@@ -229,28 +250,28 @@ router.post('/detail',(req,res)=>{
         }
     }).then((value) => {
         //data
-            res.status(200).json({
-                data: userDetail={
-                    id: value.getDataValue('id'),
-                    username: value.getDataValue('username'),
-                    nom: value.getDataValue('nom'),
-                    prenom: value.getDataValue('prenom'),
-                    email: value.getDataValue('email'),
-                    age: value.getDataValue('age'),
-                    adresse: value.getDataValue('adresse'),
-                    telephone: value.getDataValue('telephone')
-                }
-            })
+        res.status(200).json({
+            data: userDetail = {
+                id: value.getDataValue('id'),
+                username: value.getDataValue('username'),
+                nom: value.getDataValue('nom'),
+                prenom: value.getDataValue('prenom'),
+                email: value.getDataValue('email'),
+                role: value.getDataValue('role'),
+                adresse: value.getDataValue('adresse'),
+                telephone: value.getDataValue('telephone')
+            }
+        })
     })
-    
+
 
 })
 
 
 // mot de passe oublié
-router.post('/oublier',(req,res)=>{
+router.post('/oublier', (req, res) => {
     const { email, telephone } = req.body;
-console.log(email)
+    console.log(email)
     if (telephone == undefined || telephone == '' || email == undefined || email == '') {
         res.status(401).json({
             message: "fill all field",
@@ -266,15 +287,15 @@ console.log(email)
             //if mail not found ask user to register
             if (value === null) {
                 res.status(401).json({
-                    message:"Email is not register please please singUp",
+                    message: "Email is not register please please singUp",
                     status: res.statusCode,
-                    token:''
+                    token: ''
                 })
             } else {
                 //if mail is there, check the password is correct or not
                 const dbPassword = value.getDataValue('password');
                 const salt = bcrypt.genSaltSync(dbPassword);
-                console.log(dbPassword)   
+                console.log(dbPassword)
             }
         })
     }

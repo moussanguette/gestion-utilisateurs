@@ -22,6 +22,7 @@ validation : any
   roleUser : any
   connecter(f:NgForm){
     this.form = f.value
+    console.log(f);
     this.validation=f.status
     return this.connexionService.donne(this.form).subscribe((resultat:any)=>{
       this.status=resultat.status;
@@ -29,7 +30,7 @@ validation : any
       //this.id=this.data.id;
       //this.roleUser=this.data.role
      //console.log(resultat);
-     console.log(this.status);
+     console.log('this.status');
      //console.log(this.data);
      //console.log(this.roleUser);
      if(this.roleUser=="admin"){
