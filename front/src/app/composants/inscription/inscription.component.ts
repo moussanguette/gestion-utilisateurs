@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConnexionService } from 'src/app/services/connexion.service';
@@ -9,7 +10,11 @@ import { ConnexionService } from 'src/app/services/connexion.service';
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor(private connexionService:ConnexionService, private route:Router, private aRoute:ActivatedRoute) { }
+  constructor(private connexionService:ConnexionService,
+              private route:Router, 
+              private aRoute:ActivatedRoute,
+              private location: Location
+              ) { }
     data: any
     form : any
     status : any
@@ -51,6 +56,10 @@ export class InscriptionComponent implements OnInit {
     this.route.navigate(['administrateur/'+this.id]);
      
     })
+  }
+  // retour en arriere
+  retour(){
+    this.location.back();
   }
 }
 
