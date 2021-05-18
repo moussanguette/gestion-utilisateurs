@@ -3,9 +3,9 @@
     <div class="row justify-content-md-center ">
         <div class="col-md-4 ">
 
-            <div class="card " style="width: 20rem;">
-                <div class="card-header text-center mb-3 ">
-                  Connexion
+            <div class="card " style="width: 20rem; height: 380px;">
+                <div class="card-header text-center mb-3" style="background-color: #bdbdbd; height: 50px;">
+                  <h4 style="margin-left: 80px; color: black; " >Connexion</h4>
                 </div>
                 <form (ngSubmit)="connecter(f)" #f="ngForm" class="needs-validation">
                     <ul class="list-group list-group-flush ">
@@ -33,7 +33,7 @@
                             <p>veuillez remplir tous les champs !</p>
                         </div>
                          <div class="mb-3">
-                          <a [routerLink]="['/oublier']" >mot de passe oublié</a>   
+                          <a [routerLink]="['/oublier']" > <h6 style="color: black; margin-top: -11px; font-size: 12px; margin-left: 10px;">mot de passe oublié</h6> </a>   
                          </div>
                          
                          
