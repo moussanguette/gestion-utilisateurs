@@ -2,12 +2,5 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~material-icons/iconfont/material-icons.css';
 
-.container{
-}
-.inscription{
-    background-color: gray;
-    color: #ffff;
-}
-form{
-    margin-left: 250px;
-}
+
+
