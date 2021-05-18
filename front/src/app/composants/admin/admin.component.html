@@ -7,7 +7,8 @@
       <div class="collapse navbar-collapse justify-content-end " id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item float-end">
-            <a class="btn nav-link text-white" aria-current="page" href="#"><i class="bi bi-person-fill"></i> {{prenom}} {{nom}}</a>
+            <a class="btn nav-link text-white" aria-current="page" href="#">
+            <i class="bi bi-person-fill"></i> {{prenom}} {{nom}}</a>
           </li>
           <li class="nav-item ">
             <a class="btn nav-link text-white" href="#"><i class="bi bi-box-arrow-left"></i> Deconnexion</a>
@@ -21,14 +22,18 @@
         <div class="titre bg-dark">
             <p>Utilisateurs</p>
         </div>
-        <div *ngFor="let user of dataUser" class="user border border-2 rounded bg-dark">
-          <a (click)="detail(user.id)" class="btn text-white" ><p><i class="bi bi-person-fill"></i> {{user.prenom}} {{user.nom}} - {{user.role}}</p></a>
+        <div *ngFor="let user of dataUser class="buttonUtilisateur">
+          <a (click)="detail(user.id)">
+            <p>
+            <i class="bi bi-person-fill"></i> {{user.prenom}} {{user.nom}} - {{user.role}}
+            </p>
+          </a>
         </div>
     </div> -->
 
     <nav class="navbar navbar-expand-lg navbar-black bg-black " style="background-color: #000;">
       <div class="container-fluid">
-        <a class=" text-white" href="#"><h5><strong>Administrateur</strong></h5></a>
+        <a class=" text-white" href="#"><h5>Administrateur</h5></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,20 +60,26 @@
                   <span class="material-icons-outlined" id="search">search</span>            
               </h1> 
               <div id="barre5">
-                  <div *ngFor= "let user of dataUser">
+                <div *ngFor="let user of dataUser" class="buttonUtilisateur rounded">
+                  <a (click)="detail(user.id)">
+                    <i class="bi bi-person-fill"></i>
+                    {{user.prenom}} {{user.nom}} - {{user.role}}
+                  </a>
+                </div>
+                  <!-- <div *ngFor= "let user of dataUser">
                     <button (click)="detail(user.id)" class="buttonUtilisateur">
                     <i class="bi bi-person-fill"></i>
                     {{user.prenom}} {{user.nom}} - {{user.role}}
                     </button>
-                  </div>  
+                  </div> -->  
               </div>    
           </div>
           
         </div>
       </div>
 
-      
-          
+<!--page d'etaille-->
+
       <div class="col-md-8 detail">
           <div *ngIf="etat" class="card" >
             <div class="information text-center">
