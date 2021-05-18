@@ -28,16 +28,16 @@ validation : any
       this.data=resultat.userDetail;
       this.id=this.data.id;
       this.roleUser=this.data.role
-     if(this.roleUser=="admin"){
+     if(this.roleUser=="Administrateur"){
       this.route.navigate(['administrateur/'+this.id]);
      }
-     else if(this.roleUser=="formateur"){
+     else if(this.roleUser=="Formateur"){
       this.route.navigate(['formateur/'+this.id]);
      }
-     else if(this.roleUser=="etudiant"){
+     else if(this.roleUser=="Etudiant"){
       this.route.navigate(['etudiant/'+this.id]);
      }
-     else if(this.roleUser=="finance"){
+     else if(this.roleUser=="Finance"){
       this.route.navigate(['finance/'+this.id]);
      }else{
       this.route.navigate(['connexion/']);
