@@ -15,6 +15,10 @@
 # aller dans le dossier front qui contient la partie front
 # taper la commande dans le terminal pour lancer le serveur
 8- ng serve
+# la page dans un navigateur
+# connecter vous avec les identifiants suivants :
+##      mail : admin@admin.com
+##      mot de passe: admin
 
 
 
