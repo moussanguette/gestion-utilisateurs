@@ -60,6 +60,7 @@ mailUser:any
 telUser:any
 ageUser:any
 pseudoUser:any
+modId:any
 etat = false
 detail(detailId){
   this.etat = true
@@ -92,6 +93,10 @@ Supprimer(detailId){
     console.log(resultat)
     location.reload();
   })
+}
+modifier(detailId){
+  this.modId={modId:detailId}
+  this.connexionService.modifier(this.modId)
 }
 
 public get adminFilter(): string {

@@ -181,6 +181,14 @@ router.post('/supprimer', (req, res) => {
     })
 })
 
+// modifier utilisateurs
+/* router.post('/modifier', (req, res) => {
+    id = req.body.delId
+    models.Utilisateur.findAll(id).then((result)=>{
+        nom=nom;
+    })
+}) */
+
 
 //get user profile
 router.get('/profile', (req, res) => {
