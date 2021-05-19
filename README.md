@@ -18,7 +18,7 @@
 # la page dans un navigateur
 # connecter vous avec les identifiants suivants :
 ##      mail : admin@admin.com
-##      mot de passe: admin
+##      mot de passe: admin274
 
 
 

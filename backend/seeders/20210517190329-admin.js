@@ -1,5 +1,5 @@
 'use strict';
-
+const bcrypt = require('bcrypt');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -12,11 +12,22 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+var password='$2b$10$c1Yz0im5Ixez3FIexw2ecuT8G3AVpRA7E4xPGr7B5.oShziG5AHBC'
+     bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(password, salt, (err, hash) => {
+       if (err) return cb(err)
+       password = hash
+       cb()
+      })
+     })
+
      await queryInterface.bulkInsert('Utilisateurs', [{
       nom: 'admin',
       prenom: 'admin',
-      role: 'admin',
-      password: "$2y$10$aZCO.FmjSRU.fKQnBJt2iu0rcxRPgQPxUcl7pvR5/r56haioqBgdq",
+      role: 'Administrateur',
+      pseudo: 'admin',
+      adresse: 'null part',
+      password: password,
       telephone: '7X',
       email: 'admin@admin.com',
       createdAt: new Date(),
