@@ -12,6 +12,8 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+var password='$2b$10$c1Yz0im5Ixez3FIexw2ecuT8G3AVpRA7E4xPGr7B5.oShziG5AHBC'
+    
      await queryInterface.bulkInsert('Utilisateurs', [{
       nom: 'admin',
       prenom: 'admin',
