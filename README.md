@@ -10,8 +10,9 @@
 # creation des tables de la base de donnée
 6- sequelize db:migrate
 # demarrer le serveur backend
-# taper la commande dans le terminal
-7-  node serveur.js
+# taper les commandes suivantes dans le terminal
+7-  sequelize db:seed:all
+8-  node serveur.js
 # aller dans le dossier front qui contient la partie front
 # taper la commande dans le terminal pour lancer le serveur
 8- ng serve
