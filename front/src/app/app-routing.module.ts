@@ -8,6 +8,7 @@ import { FormateurComponent } from './composants/formateur/formateur.component';
 import { InscriptionComponent } from './composants/inscription/inscription.component';
 import { MotdepasseoublierComponent } from './composants/motdepasseoublier/motdepasseoublier.component';
 import { UtilisateursComponent } from './composants/utilisateurs/utilisateurs.component';
+import { UpdateUserComponent } from './composants/update-user/update-user.component';
 
 const routes: Routes = [
   {path:'',component:ConnexionComponent},
@@ -17,6 +18,9 @@ const routes: Routes = [
   {path:'formateur/:id',component:FormateurComponent},
   {path:'finance/:id',component:FinanceComponent},
   {path:'administrateur/inscription/:id',component:InscriptionComponent},
+
+  {path:'updateUser/:id',component:UpdateUserComponent},
+
   {path:'administrateur/utilisateur/:id',component:UtilisateursComponent},
   { path: '**', redirectTo: '' },
   {path:'utilisateur/:id',component:EtudiantComponent},
