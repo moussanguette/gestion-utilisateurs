@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
+import { Router } from '@angular/router';
+import { ConnexionService } from 'src/app/services/connexion.service';
 
 @Component({
   selector: 'app-motdepasseoublier',
@@ -8,14 +10,21 @@ import {FormGroup, FormControl} from '@angular/forms';
 })
 export class MotdepasseoublierComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private connexionService:ConnexionService, private route:Router) { }
+modId:any
+data:any
   ngOnInit(): void {
   }
 
-  connecter (form){
+ 
+  oublier(detailId){
     
-  }
-  value = 'Clear me';
+this.data=detailId.value.email
+console.log(this.data)
+    this.data={data:this.data}
+    this.connexionService.oublier(this.data).subscribe((resultat)=>{
+      this.route.navigate(['connexion/']);
+    })
+  }  
   
 }

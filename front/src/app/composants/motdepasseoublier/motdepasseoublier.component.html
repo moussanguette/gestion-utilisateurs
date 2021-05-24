@@ -10,7 +10,7 @@
             <div style="margin-left: 17px; margin-top: 15px">
               <h6 style="font-size: 12px;">Veuillez donner les informations liées à votre compte</h6>
             </div>
-              <form (ngSubmit)="connecter(f)" #f="ngForm" class="needs-validation" novalidate>
+              <form (ngSubmit)="oublier(f)" #f="ngForm" class="needs-validation" novalidate>
                   <ul class="list-group list-group-flush ">
                       <li class="list-group-item ">
                        
@@ -20,7 +20,7 @@
                         </label>
                         <div class="input-group mb-3">
                             
-                            <input type="email" class="form-control border-dark rounded-pill required" required name="mail" ngModel placeholder="nom@domain.com" aria-label="mail" aria-describedby="basic-addon1">
+                            <input type="email" class="form-control border-dark rounded-pill required" required name="email" ngModel placeholder="nom@domain.com" aria-label="mail" aria-describedby="basic-addon1">
                         </div>
                         <label for="exampleFormControlInput1" class="form-label">
                             <span class="text-danger">*</span>

@@ -35,6 +35,7 @@
                         class="form-control" 
                         placeholder="Prenom" 
                         id="exampleInputNom"
+                        value="{{prenom}}"
                         />
                     </div>
                     <label for="exampleInputNom"  
@@ -46,6 +47,7 @@
                         class="form-control" 
                         placeholder="Nom" 
                         id="exampleInputEmail1"
+                        value="{{nom}}"
                         />
                     </div>
                 </div>
@@ -60,6 +62,7 @@
                         class="form-control" 
                         placeholder="Téléphone"
                         id="exampleInputTelephone"
+                        value="{{prenom}}"
                         />
                     </div>
                     <label for="exampleInputEmail" 
@@ -71,6 +74,7 @@
                         class="form-control" 
                         placeholder="E-mail" 
                         id="exampleInputEmail"
+                        value="{{tel}}"
                         />
                     </div>
                 </div>
@@ -85,6 +89,7 @@
                         class="form-control" 
                         placeholder="Adress"
                         id="exampleInputAdress"
+                        value="{{adresse}}"
                         />
                     </div>
                     <label for="exampleInputPseudo" 
@@ -96,6 +101,7 @@
                         class="form-control" 
                         placeholder="Pseudo"
                         id="exampleInputPseudo"
+                        value="{{username}}"
                         />
                     </div>
                 </div>
@@ -105,7 +111,7 @@
                         <label for="cars">Role</label>
                     </div>
                     <div class="col-md-6 ">
-                        <select ngModel name="role" id="cars">
+                        <select ngModel name="role" id="cars" value="{{role}}">
                             <option value="Administrateur">Administrateur</option>
                             <option value="Formateur">Formateur</option>
                             <option value="Etudiant">Etudiant</option>
@@ -118,7 +124,7 @@
                     <!-- <button (click)='retour()' class="btn btn-outline-secondary mr-5" type="button">
                         Annuler
                     </button> -->
-                    <button  class="btn btn-info mr-4" type="submit">
+                    <button (click)='modifier(id)'  class="btn btn-info mr-4" type="submit">
                         Enregistrer
                     </button>
                 </div>
