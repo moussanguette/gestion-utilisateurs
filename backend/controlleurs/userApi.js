@@ -181,13 +181,68 @@ router.post('/supprimer', (req, res) => {
     })
 })
 
-// modifier utilisateurs
-/* router.post('/modifier', (req, res) => {
-    id = req.body.delId
-    models.Utilisateur.findAll(id).then((result)=>{
-        nom=nom;
+// mot de passe oublier
+router.post('/oublier', (req, res) => {
+    var email
+    var user
+    email = req.body.data
+    console.log(email)
+    function entierAleatoire(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+     var password = 'user' + entierAleatoire(1, 100000);
+     console.log(password)
+    bcrypt.genSalt(10, function (err, salt) {
+        bcrypt.hash(password, salt, (err, hash) => {
+            //create record
+            models.Utilisateur.update(
+                {
+                    password: hash
+                },
+               { where: { email }}
+            )
+         // send mail 
+        // create reusable transporter object using the default SMTP transport
+         transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.ACCOUNT, // generated ethereal user
+                pass: process.env.PASS, // generated ethereal password
+            },
+        });
+        // send mail with defined transport object
+        let mailOption = {
+            from: 'mossanguette@gmail.com', // sender address
+            to: email, // list of receivers
+            subject: "Gestion d'utilisateur ✔", // Subject line
+            text: "Bonjour votre mot de passe a été modifié. Le nouveau mot de passe est : " + password // plain text body
+        };
+
+        transporter.sendMail(mailOption, (err, data) => {
+            if (err) {
+                console.log('error', err)
+            } else {
+                console.log("mail sent !!!",email)
+            }
+        })
+ 
+        })
     })
-}) */
+    res.status(200).json({
+        message: "mot de passe renouvelé avec succes",
+        status: res.statusCode
+    })
+
+    /* models.Utilisateur.update(
+        {
+         "name":'sam',
+        "city":'USA'
+        },
+       { where:
+            { id }
+        }
+    ) */
+})
 
 
 //get user profile
@@ -276,37 +331,58 @@ router.post('/detail', (req, res) => {
 })
 
 
-// mot de passe oublié
-router.post('/oublier', (req, res) => {
-    const { email, telephone } = req.body;
-    console.log(email)
-    if (telephone == undefined || telephone == '' || email == undefined || email == '') {
-        res.status(401).json({
-            message: "fill all field",
-            status: res.statusCode
-        })
-    } else {
-        //verifier si le mail existe
-        models.Utilisateur.findOne({
-            where: {
-                email
-            }
-        }).then((value) => {
-            //if mail not found ask user to register
-            if (value === null) {
-                res.status(401).json({
-                    message: "Email is not register please please singUp",
-                    status: res.statusCode,
-                    token: ''
-                })
-            } else {
-                //if mail is there, check the password is correct or not
-                const dbPassword = value.getDataValue('password');
-                const salt = bcrypt.genSaltSync(dbPassword);
-                console.log(dbPassword)
-            }
-        })
+
+//modifier
+router.post('/modifier', (req, res) => {
+    var email
+    var user
+    data = req.body.data
+    console.log(data)
+/*     function entierAleatoire(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+     var password = 'user' + entierAleatoire(1, 100000);
+     console.log(password)
+    bcrypt.genSalt(10, function (err, salt) {
+        bcrypt.hash(password, salt, (err, hash) => {
+            //create record
+            models.Utilisateur.update(
+                {
+                    password: hash
+                },
+               { where: { email }}
+            )
+         // send mail 
+        // create reusable transporter object using the default SMTP transport
+         transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.ACCOUNT, // generated ethereal user
+                pass: process.env.PASS, // generated ethereal password
+            },
+        });
+        // send mail with defined transport object
+        let mailOption = {
+            from: 'mossanguette@gmail.com', // sender address
+            to: email, // list of receivers
+            subject: "Gestion d'utilisateur ✔", // Subject line
+            text: "Bonjour votre mot de passe a été modifié. Le nouveau mot de passe est : " + password // plain text body
+        };
+
+        transporter.sendMail(mailOption, (err, data) => {
+            if (err) {
+                console.log('error', err)
+            } else {
+                console.log("mail sent !!!",email)
+            }
+        })
+ 
+        })
+    })
+    res.status(200).json({
+        message: "mot de passe renouvelé avec succes",
+        status: res.statusCode
+    }) */
 })
 
 

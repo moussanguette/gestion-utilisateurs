@@ -21,7 +21,7 @@ export class UpdateUserComponent implements OnInit {
     nom :any
     prenom :any
     adresse :any
-    age :any
+    tel :any
     username :any
     role :any
     isAdmin :any
@@ -36,12 +36,22 @@ id:any
       this.nom=this.user.nom
       this.prenom=this.user.prenom
       this.adresse=this.user.adresse
-      this.username=this.user.username
+      this.username=this.user.pseudo
       this.role=this.user.role
+      this.tel=this.user.telephone
     })
 
     this.connexionService.user().subscribe((resultat:any)=>{
       this.dataUser= resultat.users;
+      
+    })
+
+    
+  }
+  modifier(id){
+
+    this.connexionService.modifier(id).subscribe((resultat:any)=>{
+      console.log('this.detailUser')
       
     })
   }
