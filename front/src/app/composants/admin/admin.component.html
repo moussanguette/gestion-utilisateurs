@@ -123,7 +123,7 @@
                     </div>
                     <br>
                     <div class="row float-right">
-                      <button (click)="modifier(detailId)" class="btn btn-primary mr-4"
+                      <button [routerLink]=" ['/updateUser',  user.id] " class="btn btn-primary mr-4"
                       type="submit">Modifier
                       </button>
                       <button (click)="Supprimer(detailId)" class="btn btn-outline-danger" type="button">
