@@ -17,6 +17,8 @@ status:any
 data:any
 id :any
 validation : any
+
+guser;
   constructor(private connexionService:ConnexionService, private route:Router, private metaservice: Meta,
     @Inject(DOCUMENT) private doc : Document,
     private renderer: Renderer2,
@@ -32,7 +34,7 @@ validation : any
 
   ngOnInit(): void {
     this.metaservice.addTags([
-      {name: 'google-signin-client_id', content :'698363782994-6rnm5babk2fee5vn5c0s9utb9f14142i.apps.googleusercontent.com'}
+      {name: 'google-signin-client_id', content :'304944222101-eo27auhvv2glte546dvjepv23svvgnfv.apps.googleusercontent.com'}
     ]);
 
     let script = this.renderer.createElement('script');
