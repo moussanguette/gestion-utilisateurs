@@ -1,7 +1,7 @@
 //connection a la base de donné
 const Sequelize = require('sequelize');// import du module sequelize
 // configuration de la base de donné
-var sequelize = new Sequelize('gestionUtilisateur', 'moussa', 'Moussa3001', {
+var sequelize = new Sequelize('gestionUtilisateur', 'niang', 'password', {
     host: 'localhost',
     dialect: 'mysql',
     pool:{

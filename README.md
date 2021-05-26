@@ -1,5 +1,4 @@
 # gestion-utilisateurs
-
 1- aller dans le dossier config et remplacer les informations de la base de donne du fichier config.json par le votre
 2- aller dans le dossier connexion et remplacer les informations de la base de donne du fichier db.js par le votre
 # installer les dependances
@@ -18,6 +17,8 @@
 8- ng serve
 # la page dans un navigateur
 # connecter vous avec les identifiants suivants :
+9- connexion
+
 ##      mail : admin@admin.com
 ##      mot de passe: admin274
 

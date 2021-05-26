@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "moussa",
-    "password": "Moussa3001",
+    "username": "niang",
+    "password": "password",
     "database": "gestionUtilisateur",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -14,8 +14,8 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "moussa",
-    "password": "Moussa3001",
+    "username": "niang",
+    "password": "password",
     "database": "gestionUtilisateur",
     "host": "127.0.0.1",
     "dialect": "mysql"

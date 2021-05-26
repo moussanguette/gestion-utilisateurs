@@ -66,7 +66,7 @@ router.post('/register', (req, res) => {
         });
         // send mail with defined transport object
         let mailOption = {
-            from: 'mossanguette@gmail.com', // sender address
+            from: 'mohametniang4@gmail.com', // sender address
             to: email, // list of receivers
             subject: "Gestion d'utilisateur ✔", // Subject line
             text: "Bonjour votre mot de passe est " + password // plain text body
