@@ -10,6 +10,10 @@ import { MotdepasseoublierComponent } from './composants/motdepasseoublier/motde
 import { UtilisateursComponent } from './composants/utilisateurs/utilisateurs.component';
 import { UpdateUserComponent } from './composants/update-user/update-user.component';
 
+//connexion google
+import { from } from 'rxjs';
+
+
 const routes: Routes = [
   {path:'',component:ConnexionComponent},
   {path:'oublier',component:MotdepasseoublierComponent},
