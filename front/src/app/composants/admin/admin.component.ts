@@ -43,7 +43,7 @@ export class AdminComponent implements OnInit {
       this.username=this.user.username
       this.role=this.user.role
     })
-
+//recuperation des utilisateurs
     this.connexionService.user().subscribe((resultat:any)=>{
       this.dataUser= resultat.users;
       
@@ -69,7 +69,6 @@ detail(detailId){
   console.log(detailId)
   //this.route.navigate(['administrateur/utilisateur/'+detailId])
   this.connexionService.recevoirDetail(this.infoUser).subscribe((resultat:any)=>{
-    
     this.detailUser=resultat.data
     this.nomUser = resultat.data.nom
     this.prenomUser=resultat.data.prenom
@@ -80,7 +79,7 @@ detail(detailId){
     
     console.log(this.detailUser)
     
-  }) 
+  })
 }
 
 ajouter(){
@@ -94,10 +93,7 @@ Supprimer(detailId){
     location.reload();
   })
 }
-modifier(detailId){
-  this.modId={modId:detailId}
-  this.connexionService.modifier(this.modId)
-}
+
 
 public get adminFilter(): string {
   return this._adminFilter;

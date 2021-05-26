@@ -29,6 +29,9 @@ export class ConnexionService {
   supp(donne: object){
     return this.webRequestService.post('supprimer', donne)
   }
+  oublier(donne : object){
+    return this.webRequestService.post('oublier', donne)
+  }
   modifier(donne : object){
     return this.webRequestService.post('modifier', donne)
   }

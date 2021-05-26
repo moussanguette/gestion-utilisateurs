@@ -1,36 +1,3 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Administrateur</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end " id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item float-end">
-            <a class="btn nav-link text-white" aria-current="page" href="#">
-            <i class="bi bi-person-fill"></i> {{prenom}} {{nom}}</a>
-          </li>
-          <li class="nav-item ">
-            <a class="btn nav-link text-white" href="#"><i class="bi bi-box-arrow-left"></i> Deconnexion</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-    <div class="row">
-      <div class="col-md-3 text-white">
-        <div class="titre bg-dark">
-            <p>Utilisateurs</p>
-        </div>
-        <div *ngFor="let user of dataUser class="buttonUtilisateur">
-          <a (click)="detail(user.id)">
-            <p>
-            <i class="bi bi-person-fill"></i> {{user.prenom}} {{user.nom}} - {{user.role}}
-            </p>
-          </a>
-        </div>
-    </div> -->
-
     <nav class="navbar navbar-expand-lg navbar-black bg-black " style="background-color: #000;">
       <div class="container-fluid">
         <a class=" text-white" href="#"><h5>Administrateur</h5></a>
@@ -123,7 +90,7 @@
                     </div>
                     <br>
                     <div class="row float-right">
-                      <button [routerLink]=" ['/updateUser',  user.id] " class="btn btn-primary mr-4"
+                      <button [routerLink]=" ['/updateUser',  detailId] " class="btn btn-primary mr-4"
                       type="submit">Modifier
                       </button>
                       <button (click)="Supprimer(detailId)" class="btn btn-outline-danger" type="button">
