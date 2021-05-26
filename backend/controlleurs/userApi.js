@@ -316,13 +316,14 @@ router.post('/detail', (req, res) => {
         res.status(200).json({
             data: userDetail = {
                 id: value.getDataValue('id'),
-                username: value.getDataValue('username'),
+                pseudo: value.getDataValue('pseudo'),
                 nom: value.getDataValue('nom'),
                 prenom: value.getDataValue('prenom'),
                 email: value.getDataValue('email'),
                 role: value.getDataValue('role'),
                 adresse: value.getDataValue('adresse'),
                 telephone: value.getDataValue('telephone')
+    
             }
         })
     })
@@ -334,55 +335,31 @@ router.post('/detail', (req, res) => {
 
 //modifier
 router.post('/modifier', (req, res) => {
-    var email
-    var user
-    data = req.body.data
+    data = req.body
     console.log(data)
-/*     function entierAleatoire(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-     var password = 'user' + entierAleatoire(1, 100000);
-     console.log(password)
-    bcrypt.genSalt(10, function (err, salt) {
-        bcrypt.hash(password, salt, (err, hash) => {
-            //create record
-            models.Utilisateur.update(
-                {
-                    password: hash
-                },
-               { where: { email }}
-            )
-         // send mail 
-        // create reusable transporter object using the default SMTP transport
-         transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.ACCOUNT, // generated ethereal user
-                pass: process.env.PASS, // generated ethereal password
-            },
-        });
-        // send mail with defined transport object
-        let mailOption = {
-            from: 'mossanguette@gmail.com', // sender address
-            to: email, // list of receivers
-            subject: "Gestion d'utilisateur ✔", // Subject line
-            text: "Bonjour votre mot de passe a été modifié. Le nouveau mot de passe est : " + password // plain text body
-        };
+    let id = data.id
+    let prenom = data.prenom
+    let nom = data.nom
+    let email= data.email
+    let pseudo = data.pseudo
+    let tel = data.telephone
+    let role = data.role
+    let adresse = data.address
+    
+    console.log(data)
+    models.Utilisateur.update(
+        {
+            prenom: prenom,
+            nom: nom,
+            role : role,
+            pseudo : pseudo,
+            tel: tel,
+            adresse: adresse
+        },
+       { where: { email }}
+    )
 
-        transporter.sendMail(mailOption, (err, data) => {
-            if (err) {
-                console.log('error', err)
-            } else {
-                console.log("mail sent !!!",email)
-            }
-        })
- 
-        })
-    })
-    res.status(200).json({
-        message: "mot de passe renouvelé avec succes",
-        status: res.statusCode
-    }) */
+
 })
 
 

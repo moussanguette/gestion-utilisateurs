@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConnexionService } from '../../services/connexion.service';
+import { NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,24 +13,28 @@ import { ConnexionService } from '../../services/connexion.service';
   ]
 })
 export class UpdateUserComponent implements OnInit {
-
-  constructor(private connexionService:ConnexionService, private route:Router, private aRoute:ActivatedRoute) { }
-    data: any
-    form : any
-    status : any
-    dataId : object
-    user:any
-    nom :any
-    prenom :any
-    adresse :any
-    tel :any
-    username :any
-    role :any
-    isAdmin :any
-    dataUser: any
-id:any
+  data: any
+  form : any
+  status : any
+  dataId : object
+  user:any
+  nom :any
+  prenom :any
+  adresse :any
+  tel :any
+  username :any
+  role :any
+  isAdmin :any
+  dataUser: any
+  id:any
+  constructor(private connexionService:ConnexionService,
+              private route:Router,
+              private aRoute:ActivatedRoute,
+              private NgForm:NgForm
+              ) { }
+   
   ngOnInit(): void {
-    this.id = this.aRoute.snapshot.params['id'];
+  this.id = this.aRoute.snapshot.params['id'];
    this.dataId={value:this.id}
     this.connexionService.recevoir(this.dataId).subscribe((resultat:any)=>{
       this.user=resultat.data

@@ -9,6 +9,7 @@ import { InscriptionComponent } from './composants/inscription/inscription.compo
 import { MotdepasseoublierComponent } from './composants/motdepasseoublier/motdepasseoublier.component';
 import { UtilisateursComponent } from './composants/utilisateurs/utilisateurs.component';
 import { UpdateUserComponent } from './composants/update-user/update-user.component';
+import { ModifierComponent } from './composants/modifier/modifier.component';
 
 const routes: Routes = [
   {path:'',component:ConnexionComponent},
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path:'finance/:id',component:FinanceComponent},
   {path:'administrateur/inscription/:id',component:InscriptionComponent},
 
-  {path:'updateUser/:id',component:UpdateUserComponent},
+  {path:'updateUser/:id',component:ModifierComponent},
 
   {path:'administrateur/utilisateur/:id',component:UtilisateursComponent},
   { path: '**', redirectTo: '' },

@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { UtilisateursComponent } from './composants/utilisateurs/utilisateurs.component';
+import { ModifierComponent } from './composants/modifier/modifier.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { UtilisateursComponent } from './composants/utilisateurs/utilisateurs.co
     InscriptionComponent,
     DetailComponent,
     MotdepasseoublierComponent,
-    UtilisateursComponent
+    UtilisateursComponent,
+    ModifierComponent
   ],
   imports: [
     BrowserModule,
