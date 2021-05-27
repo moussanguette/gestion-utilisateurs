@@ -357,8 +357,12 @@ router.post('/modifier', (req, res) => {
             adresse: adresse
         },
        { where: { email }}
+       
     )
-
+    res.status(200).json({
+        message: "mot de passe renouvelé avec succes",
+        status: res.statusCode
+    })
 
 })
 

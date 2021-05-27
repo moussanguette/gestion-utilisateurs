@@ -59,7 +59,7 @@ export class ModifierComponent implements OnInit {
   
   modifier(f){
     this.connexionService.modifier(f.value).subscribe((resultat:any)=>{
-      
+      this.route.navigate(['administrateur/'+this.id]);
     })
     console.log(f)
   }
