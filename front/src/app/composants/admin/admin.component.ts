@@ -20,6 +20,7 @@ export class AdminComponent implements OnInit {
   dataId : object
   user:any
   nom :any
+  
   prenom :any
   adresse :any
   age :any
@@ -43,6 +44,7 @@ export class AdminComponent implements OnInit {
       this.username=this.user.username
       this.role=this.user.role
     })
+    
 //recuperation des utilisateurs
     this.connexionService.user().subscribe((resultat:any)=>{
       this.dataUser= resultat.users;

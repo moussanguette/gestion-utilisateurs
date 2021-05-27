@@ -346,7 +346,6 @@ router.post('/modifier', (req, res) => {
     let role = data.role
     let adresse = data.address
     
-    console.log(data)
     models.Utilisateur.update(
         {
             prenom: prenom,
@@ -358,7 +357,10 @@ router.post('/modifier', (req, res) => {
         },
        { where: { email }}
     )
-
+    res.status(200).json({
+        message: "mot de passe renouvelé avec succes",
+        status: res.statusCode
+    })
 
 })
 
