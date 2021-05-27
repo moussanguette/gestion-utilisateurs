@@ -346,7 +346,6 @@ router.post('/modifier', (req, res) => {
     let role = data.role
     let adresse = data.address
     
-    console.log(data)
     models.Utilisateur.update(
         {
             prenom: prenom,
