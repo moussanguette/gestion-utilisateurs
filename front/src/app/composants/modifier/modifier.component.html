@@ -31,11 +31,11 @@
                     Prenom</label>
                     <div class="col-md-4">
                         <input name="prenom" 
-                         type="text" ngModel
+                         type="text" 
                         class="form-control" 
                         placeholder="Prenom" 
                         id="exampleInputNom"
-                        value="{{prenom}}"
+                        value="{{prenom}}" ngModel
                         />
                     </div>
                     <label for="exampleInputNom"  
@@ -43,11 +43,11 @@
                     Nom</label>
                     <div class="col-md-4">
                         <input name="nom" 
-                        ngModel type="text" 
+                        type="text" 
                         class="form-control" 
                         placeholder="Nom" 
                         id="exampleInputEmail1"
-                        value="{{nom}}"
+                        value="{{nom}}" ngModel
                         />
                     </div>
                 </div>
@@ -58,11 +58,11 @@
                     Tél</label>
                     <div class="col-md-4">
                         <input name="telephone" 
-                        ngModel type="text" 
+                        type="text" 
                         class="form-control" 
                         placeholder="Téléphone"
                         id="exampleInputTelephone"
-                        value="{{tel}}"
+                        value="{{tel}}" ngModel
                         />
                     </div>
                     <label for="exampleInputEmail" 
@@ -70,11 +70,11 @@
                     E-mail</label>
                     <div class="col-md-4">
                         <input name="email" 
-                        ngModel type="text" 
+                        type="text" 
                         class="form-control" 
                         placeholder="E-mail" 
                         id="exampleInputEmail"
-                        value="{{email}}"
+                        value="{{email}}" ngModel
                         />
                     </div>
                 </div>
@@ -84,24 +84,26 @@
                     class="col-md-1 col-form-label">
                     Adress</label>
                     <div class="col-md-4">
-                        <input name="adresse" 
-                        ngModel type="text" 
+                        <input  
+                        type="text" 
                         class="form-control" 
                         placeholder="Adress"
                         id="exampleInputAdress"
-                        value="{{adresse}}"
+                        value="{{adresse}}" ngModel
+                        name="adresse"
                         />
                     </div>
                     <label for="exampleInputPseudo" 
                     class="col-md-1 col-form-label">
                     Pseudo</label>
                     <div class="col-md-4">
-                        <input name="pseudo" 
-                        ngModel type="text" 
+                        <input  
+                        type="text" 
                         class="form-control" 
                         placeholder="Pseudo"
                         id="exampleInputPseudo"
-                        value="{{pseudo}}"
+                        value="{{pseudo}}" ngModel
+                        name="pseudo"
                         />
                     </div>
                 </div>
@@ -111,7 +113,7 @@
                         <label for="cars">Role</label>
                     </div>
                     <div class="col-md-6 ">
-                        <select ngModel name="role" id="cars" value="{{role}}">
+                        <select  id="cars" value="{{role}}" ngModel name="role">
                             <option value="Administrateur">Administrateur</option>
                             <option value="Formateur">Formateur</option>
                             <option value="Etudiant">Etudiant</option>

@@ -26,6 +26,9 @@ export class ModifierComponent implements OnInit {
   telephone:any
   email:any
   nomModi:any
+  modiId: any
+  dataModi :any[]
+  
   constructor(private location: Location,
               private route:Router,
               private aRoute:ActivatedRoute,
@@ -59,11 +62,10 @@ export class ModifierComponent implements OnInit {
   
   modifier(f){
     this.connexionService.modifier(f.value).subscribe((resultat:any)=>{
-      this.route.navigate(['administrateur/'+this.id]);
+      //this.route.navigate(['administrateur/'+this.id]);
+      this.location.back();
     })
     console.log(f)
   }
-
-  
 
 }

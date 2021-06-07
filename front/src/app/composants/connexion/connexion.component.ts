@@ -60,6 +60,7 @@ guser;
   connecter(f:NgForm){
     
     this.form = f.value
+    console.log(this.form)
     this.validation=f.status
     return this.connexionService.donne(this.form).subscribe((resultat:any)=>{
       this.status=resultat.status;

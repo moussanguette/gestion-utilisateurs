@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ConnexionService } from 'src/app/services/connexion.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ConnexionService } from 'src/app/services/connexion.service';
 })
 export class FinanceComponent implements OnInit {
 
-  constructor(private connexionService:ConnexionService, private route:Router) { }
+  constructor(private connexionService:ConnexionService, private route:Router, private aRoute:ActivatedRoute) { }
     data: any
     form : any
     status : any
@@ -23,10 +23,11 @@ export class FinanceComponent implements OnInit {
     role :any
     isAdmin :any
     dataUser: any
-
+id:any
   ngOnInit(): void {
+    this.id = this.aRoute.snapshot.params['id'];
+   this.dataId={value:this.id}
     this.connexionService.recevoir(this.dataId).subscribe((resultat:any)=>{
-      
       this.user=resultat.data
       console.log(this.user)
       this.nom=this.user.nom
@@ -41,6 +42,5 @@ export class FinanceComponent implements OnInit {
       
     })
   }
-
 
 }

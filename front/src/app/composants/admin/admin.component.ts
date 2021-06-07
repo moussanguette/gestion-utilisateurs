@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConnexionService } from '../../services/connexion.service';
 import { IAdmin }  from './admin';
@@ -8,8 +8,9 @@ import { IAdmin }  from './admin';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
 
+export class AdminComponent implements OnInit {
+  
   constructor(private connexionService:ConnexionService, private aRoute: ActivatedRoute,private route: Router) { }
   public admins: any[] = [
     
@@ -28,11 +29,12 @@ export class AdminComponent implements OnInit {
   role :any
   isAdmin :any
   dataUser: any
-  id:any
+ // idA:any
+  @Input() idA:any
   ngOnInit(): void {
     this.filteredadmins = this.admins;
-   this.id = this.aRoute.snapshot.params['id'];
-   this.dataId={value:this.id}
+   this.idA = this.aRoute.snapshot.params['id'];
+   this.dataId={value:this.idA}
     //console.log(this.dataId)
     this.connexionService.recevoir(this.dataId).subscribe((resultat:any)=>{
       //console.log(resultat)
@@ -85,7 +87,7 @@ detail(detailId){
 }
 
 ajouter(){
-  this.route.navigate(['administrateur/inscription/'+this.id])
+  this.route.navigate(['administrateur/inscription/'+this.idA])
 }
 delId:any
 Supprimer(detailId){
@@ -97,15 +99,7 @@ Supprimer(detailId){
 }
 
 
-public get adminFilter(): string {
-  return this._adminFilter;
-}
 
-public set adminFilter(filter: string) {
-  this._adminFilter = filter;
-  this.filteredadmins = this.adminFilter ? this.filteradmins(this.adminFilter): this.admins ; 
-
-}
 
 
 private filteradmins( criteria: string): IAdmin[] {
