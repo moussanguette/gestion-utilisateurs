@@ -11,6 +11,10 @@ import { UtilisateursComponent } from './composants/utilisateurs/utilisateurs.co
 import { UpdateUserComponent } from './composants/update-user/update-user.component';
 import { ModifierComponent } from './composants/modifier/modifier.component';
 
+//connexion google
+import { from } from 'rxjs';
+
+
 const routes: Routes = [
   {path:'',component:ConnexionComponent},
   {path:'oublier',component:MotdepasseoublierComponent},
