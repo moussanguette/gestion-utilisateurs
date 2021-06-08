@@ -19,6 +19,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { UtilisateursComponent } from './composants/utilisateurs/utilisateurs.component';
 import { ModifierComponent } from './composants/modifier/modifier.component';
+import { HearderComponent } from './composants/hearder/hearder.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ModifierComponent } from './composants/modifier/modifier.component';
     DetailComponent,
     MotdepasseoublierComponent,
     UtilisateursComponent,
-    ModifierComponent
+    ModifierComponent,
+    HearderComponent
   ],
   imports: [
     BrowserModule,

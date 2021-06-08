@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConnexionService } from '../../services/connexion.service';
 import { IAdmin }  from './admin';
 
+import Swal from 'sweetalert2'
+
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -92,10 +95,42 @@ ajouter(){
 delId:any
 Supprimer(detailId){
   this.delId={delId:detailId}
-  this.connexionService.supp(this.delId).subscribe((resultat:any)=>{
-    console.log(resultat)
-    location.reload();
+
+  //dfghjk
+
+  Swal.fire({
+    title: 'Tu-es sur?',
+    text: 'L\'utilisateur sera supprimé!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Ok',
+    cancelButtonText: 'Annulé'
+  }).then((result) => {
+    if (result.isConfirmed) {
+
+      //fghj
+      this.connexionService.supp(this.delId).subscribe((resultat:any)=>{
+        console.log(resultat)
+        location.reload();
+      })
+      Swal.fire(
+        'Supprimé!',
+        'L\'utilisateur est bien supprimé.',
+        'success'
+      )
+    // For more information about handling dismissals please visit
+    // https://sweetalert2.github.io/#handling-dismissals
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire(
+        'Annulé',
+        'Tu as annulé la suppression :)',
+        'error'
+      )
+    }
   })
+
+  //ghjhjh
+  
 }
 
 
