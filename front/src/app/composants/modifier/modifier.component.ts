@@ -63,7 +63,7 @@ export class ModifierComponent implements OnInit {
   modifier(f){
     console.log(f.value)
     this.connexionService.modifier(f.value).subscribe((resultat:any)=>{
-      //this.route.navigate(['administrateur/'+this.id]);
+      this.route.navigate(['administrateur/'+this.id]);
       this.location.back();
     })
   }
